@@ -48,11 +48,11 @@ These programs and resources are required to install and run LWF Explorer
 
 ## Installation Steps
 
-Clone the Oxycoin Explorer Repository:
+Clone the Lwfcoin Explorer Repository:
 
 ```
-git clone https://github.com/Oxycoin/oxy-explorer.git
-cd oxy-explorer
+git clone https://github.com/lwfcoin/lwf-explorer.git
+cd lwf-explorer
 npm install
 bower install
 ```
@@ -60,7 +60,7 @@ bower install
 ## Build Steps
 
 #### Frontend
- The frontend must be built with Grunt before starting Oxycoin Explorer. Run the following command to compile the frontend components:
+ The frontend must be built with Grunt before starting lwfcoin Explorer. Run the following command to compile the frontend components:
 
 `grunt compile`
 
@@ -89,22 +89,22 @@ To enable Top Accounts functionality, edit your client node config.json _(not th
     "address": "0.0.0.0",
     "version": "0.1.0",
     "fileLogLevel": "info",
-    "logFileName": "logs/oxycoin.log",
+    "logFileName": "logs/lwfcoin.log",
     "consoleLogLevel": "info",
-    "trustProxy": false,
+    "trustPrlwf": false,
     "topAccounts": false, <--- This line needs to be changed to read true
 ```
 
 After the change is made the client node will need to be restarted. (Example):
 
 ```
-bash /PATH_TO_NODE_DIR/oxy_manager.bash stop
-bash /PATH_TO_NODE_DIR/oxy_manager.bash start
+bash /PATH_TO_NODE_DIR/lwf_manager.bash stop
+bash /PATH_TO_NODE_DIR/lwf_manager.bash start
 ```
 
-## Managing Oxycoin Explorer
+## Managing lwfcoin Explorer
 
-To test that Oxycoin Explorer is configured correctly, run the following command:
+To test that lwfcoin Explorer is configured correctly, run the following command:
 
 `node app.js`
 
@@ -137,8 +137,8 @@ Replace the **config.json** for the client node the corresponding file under the
 Then restart the client node (example):
 
 ```
-bash /PATH_TO_NODE_DIR/oxy_manager.bash stop
-bash /PATH_TO_NODE_DIR/oxy_manager.bash start
+bash /PATH_TO_NODE_DIR/lwf_manager.bash stop
+bash /PATH_TO_NODE_DIR/lwf_manager.bash start
 ```
 
 Launch the Explorer (runs on port 6040):
@@ -165,6 +165,7 @@ npm test -- test/api/transactions.js
 
 The MIT License (MIT)
 
+Copyright (c) 2017 LWF<br>
 Copyright (c) 2017 Oxycoin<br>
 Copyright (c) 2016 4miners.net<br>
 Copyright (c) 2016 Lisk<br>
