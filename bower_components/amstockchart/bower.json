@@ -1,0 +1,19 @@
+{
+  "name": "amstockchart",
+  "version": "3.15.1",
+  "license": "Linkware",
+  "homepage": "http://www.amcharts.com/stock-chart/",
+  "main": [
+    "amcharts/amcharts.js",
+    "amcharts/amstock.js",
+    "amcharts/serial.js",
+    "amcharts/style.css"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

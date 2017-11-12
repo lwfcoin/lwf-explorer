@@ -1,0 +1,27 @@
+{
+  "name": "amstockchart",
+  "license": "Linkware",
+  "homepage": "http://www.amcharts.com/stock-chart/",
+  "main": [
+    "amcharts/amcharts.js",
+    "amcharts/amstock.js",
+    "amcharts/serial.js",
+    "amcharts/style.css"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "f9591b8ef0",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f9591b8ef03ad7784c0a88cb16598e3279744c42"
+  },
+  "_source": "https://github.com/karmacoma/amstockcharts.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/karmacoma/amstockcharts.git"
+}
