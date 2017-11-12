@@ -48,10 +48,10 @@ These programs and resources are required to install and run LWF Explorer
 
 ## Installation Steps
 
-Clone the Oxycoin Explorer Repository:
+Clone the LWF Explorer Repository:
 
 ```
-git clone https://github.com/Oxycoin/oxy-explorer.git
+git clone https://github.com/LWF/oxy-explorer.git
 cd oxy-explorer
 npm install
 bower install
@@ -60,7 +60,7 @@ bower install
 ## Build Steps
 
 #### Frontend
- The frontend must be built with Grunt before starting Oxycoin Explorer. Run the following command to compile the frontend components:
+ The frontend must be built with Grunt before starting LWF Explorer. Run the following command to compile the frontend components:
 
 `grunt compile`
 
@@ -102,9 +102,9 @@ bash /PATH_TO_NODE_DIR/oxy_manager.bash stop
 bash /PATH_TO_NODE_DIR/oxy_manager.bash start
 ```
 
-## Managing Oxycoin Explorer
+## Managing LWF Explorer
 
-To test that Oxycoin Explorer is configured correctly, run the following command:
+To test that LWF Explorer is configured correctly, run the following command:
 
 `node app.js`
 
@@ -165,7 +165,8 @@ npm test -- test/api/transactions.js
 
 The MIT License (MIT)
 
-Copyright (c) 2017 Oxycoin<br>
+Copyright (c) 2017 OxyCoin
+Copyright (c) 2017 LWF<br>
 Copyright (c) 2016 4miners.net<br>
 Copyright (c) 2016 Lisk<br>
 Copyright (c) 2015 Crypti
