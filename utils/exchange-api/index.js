@@ -67,16 +67,18 @@ module.exports = function (config) {
             ]
         },
         'LWFBTC' : {
+		// TO DO: We know that is not Bittrex of course, but for now we will leave so to fix quickly the problem
             bittrex : [
-                'Bittrex',
-                'https://bittrex.com/api/v1.1/public/getticker?market=BTC-LWF',
-                function (res, cb) {
-                    if (!res.success) {
-                        return cb(res.error);
-                    } else {
-                        return cb(null, res.result.Last);
-                    }
-                }
+		    'Cryptopia',
+		    'https://www.cryptopia.co.nz/api/GetMarket/LWF_BTC',
+		    function (res, cb) { 
+		      if (!res.Success) {
+		      return cb(res.Error);
+		      } else {
+			return cb(null, res.Data.LastPrice);
+		   //   return cb(null, res.result.LastPrice);
+		  }
+		}
             ]
         }
     };
