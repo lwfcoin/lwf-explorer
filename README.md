@@ -165,7 +165,7 @@ npm test -- test/api/transactions.js
 
 The MIT License (MIT)
 
-Copyright (c) 2017 OxyCoin
+Copyright (c) 2017 OxyCoin<br>
 Copyright (c) 2017 LWF<br>
 Copyright (c) 2016 4miners.net<br>
 Copyright (c) 2016 Lisk<br>

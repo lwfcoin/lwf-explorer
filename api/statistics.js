@@ -25,5 +25,19 @@ module.exports = function (app) {
             function (data) { res.json(data); }
         );
     });
+
+    app.get('/api/statistics/getBlockTimes', function (req, res) {
+        api.getBlockTimes(
+            function (data) { res.json(data); },
+            function (data) { res.json(data); }
+        );
+    });
+
+    app.get('/api/statistics/getTransactionsPerBlock', function (req, res) {
+        api.getTransactionsPerBlock(
+            function (data) { res.json(data); },
+            function (data) { res.json(data); }
+        );
+    });    
 };
 

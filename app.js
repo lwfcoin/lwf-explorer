@@ -52,7 +52,7 @@ app.use (function (req, res, next) {
     res.setHeader ('X-Content-Type-Options', 'nosniff');
     res.setHeader ('X-XSS-Protection', '1; mode=block');
     var ws_src = 'ws://' + req.get('host') + ' wss://' + req.get('host');
-    res.setHeader ('Content-Security-Policy', 'frame-ancestors \'none\'; default-src \'self\'; connect-src \'self\' ' + ws_src + '; img-src \'self\' https://*.tile.openstreetmap.org; style-src \'self\' \'unsafe-inline\' https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com');
+    res.setHeader ('Content-Security-Policy', 'frame-ancestors \'none\';  child-src blob: ; default-src \'self\' \'unsafe-eval\'; connect-src \'self\' ' + ws_src + ' https://*.mapbox.com; img-src \'self\' data: blob:; style-src \'self\' https://*.mapbox.com \'unsafe-inline\' https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com; worker-src \'self\' data: blob:');
     return next();
 });
 
