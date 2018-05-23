@@ -51,8 +51,8 @@ These programs and resources are required to install and run LWF Explorer
 Clone the LWF Explorer Repository:
 
 ```
-git clone https://github.com/LWF/oxy-explorer.git
-cd oxy-explorer
+git clone https://github.com/lwfcoin/lwf-explorer.git
+cd lwf-explorer
 npm install
 bower install
 ```
@@ -89,7 +89,7 @@ To enable Top Accounts functionality, edit your client node config.json _(not th
     "address": "0.0.0.0",
     "version": "0.1.0",
     "fileLogLevel": "info",
-    "logFileName": "logs/oxycoin.log",
+    "logFileName": "logs/lwfcoin.log",
     "consoleLogLevel": "info",
     "trustProxy": false,
     "topAccounts": false, <--- This line needs to be changed to read true
@@ -98,8 +98,8 @@ To enable Top Accounts functionality, edit your client node config.json _(not th
 After the change is made the client node will need to be restarted. (Example):
 
 ```
-bash /PATH_TO_NODE_DIR/oxy_manager.bash stop
-bash /PATH_TO_NODE_DIR/oxy_manager.bash start
+bash /PATH_TO_NODE_DIR/lwf_manager.bash stop
+bash /PATH_TO_NODE_DIR/lwf_manager.bash start
 ```
 
 ## Managing LWF Explorer
@@ -137,8 +137,8 @@ Replace the **config.json** for the client node the corresponding file under the
 Then restart the client node (example):
 
 ```
-bash /PATH_TO_NODE_DIR/oxy_manager.bash stop
-bash /PATH_TO_NODE_DIR/oxy_manager.bash start
+bash /PATH_TO_NODE_DIR/lwf_manager.bash stop
+bash /PATH_TO_NODE_DIR/lwf_manager.bash start
 ```
 
 Launch the Explorer (runs on port 6040):
