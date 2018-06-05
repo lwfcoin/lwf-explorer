@@ -9,8 +9,8 @@ config.host = '0.0.0.0'; // Interface to listen on, 0.0.0.0 to listen on all ava
 config.port = 6040;      // Port to listen on
 
 // LISK node
-config.lisk.host = '138.197.177.209';
-config.lisk.port = 10000; 
+config.lisk.host = '159.65.80.16';
+config.lisk.port = 18124; 
 
 // FreeGeoIP server
 config.freegeoip.host = '127.0.0.1';
@@ -28,10 +28,13 @@ config.walletAddress = 'https://wallet.lwf.io'; // Link to wallet login
 config.exchangeRates.enabled = true;         // Exchange rates support (true - enabled, false - disabled)
 config.exchangeRates.updateInterval = 30000; // Interval in ms for checking exchange rates (default: 30 seconds)
 // Configuration for different currency pairs, set false to disable pair
-config.exchangeRates.exchanges.LWF.BTC = 'bittrex';  // LWF/BTC pair, supported: poloniex
+config.exchangeRates.exchanges.LWF.BTC = 'cryptopia';  // LWF/BTC pair, supported: cryptopia
 config.exchangeRates.exchanges.BTC.USD = 'bitfinex'; // BTC/USD pair, supported: bitfinex, bitstamp, btce
 config.exchangeRates.exchanges.BTC.EUR = 'bitstamp'; // BTC/EUR pair, supported: bitstamp, bitmarket
 config.exchangeRates.exchanges.BTC.PLN = 'bitmarket'; // BTC/PLN pair, supported: bitmarket
+config.exchangeRates.exchanges.BTC.ARK = 'bittrex'; // BTC/ARK pair, supported: bittrex
+config.exchangeRates.exchanges.BTC.RDD = 'bittrex'; // BTC/RDD pair, supported: bittrex
+config.exchangeRates.exchanges.BTC.XZC = 'bittrex'; // BTC/XZC pair, supported: bittrex
 
 // Market watcher
 config.marketWatcher.enabled = false; // Market watcher support (true - enabled, false - disabled)

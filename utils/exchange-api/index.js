@@ -10,8 +10,8 @@ module.exports = function (config) {
     }
 
     var exchanges = {
-        'BTCUSD' : {
-            'bitfinex' : [
+        'BTCUSD': {
+            'bitfinex': [
                 'Bitfinex',
                 'https://api.bitfinex.com/v1/pubticker/BTCUSD',
                 function (res, cb) {
@@ -22,34 +22,34 @@ module.exports = function (config) {
                     }
                 }
             ],
-            'bitstamp' : [
+            'bitstamp': [
                 'Bitstamp',
                 'https://www.bitstamp.net/api/v2/ticker/btcusd/',
                 function (res, cb) {
                     return cb(null, res.last);
                 }
             ],
-            'btce' : [
+            'btce': [
                 'Btc-e',
                 'https://btc-e.com/api/3/ticker/btc_usd',
                 function (res, cb) {
-                  if (res.error) {
-                      return cb(res.error);
-                  } else {
-                      return cb(null, res.btc_usd.last);
-                  }
+                    if (res.error) {
+                        return cb(res.error);
+                    } else {
+                        return cb(null, res.btc_usd.last);
+                    }
                 }
             ]
         },
-        'BTCEUR' : {
-            'bitstamp' : [
+        'BTCEUR': {
+            'bitstamp': [
                 'Bitstamp',
                 'https://www.bitstamp.net/api/v2/ticker/btceur/',
                 function (res, cb) {
                     return cb(null, res.last);
                 }
             ],
-            'bitmarket' : [
+            'bitmarket': [
                 'Bitmarket',
                 'https://www.bitmarket.pl/json/BTCEUR/ticker.json',
                 function (res, cb) {
@@ -57,8 +57,8 @@ module.exports = function (config) {
                 }
             ]
         },
-        'BTCPLN' : {
-            'bitmarket' : [
+        'BTCPLN': {
+            'bitmarket': [
                 'Bitmarket',
                 'https://www.bitmarket.pl/json/BTCPLN/ticker.json',
                 function (res, cb) {
@@ -66,19 +66,58 @@ module.exports = function (config) {
                 }
             ]
         },
-        'LWFBTC' : {
-		// TO DO: We know that is not Bittrex of course, but for now we will leave so to fix quickly the problem
-            bittrex : [
-		    'Cryptopia',
-		    'https://www.cryptopia.co.nz/api/GetMarket/LWF_BTC',
-		    function (res, cb) { 
-		      if (!res.Success) {
-		      return cb(res.Error);
-		      } else {
-			return cb(null, res.Data.LastPrice);
-		   //   return cb(null, res.result.LastPrice);
-		  }
-		}
+        'BTCARK': {
+            'bittrex': [
+                'Bittrex',
+                'https://bittrex.com/api/v1.1/public/getticker?market=BTC-ARK',
+                function (res, cb) {
+                    if (!res.success) {
+                        return cb(res.error);
+                    } else {
+                        return cb(null, res.result.Last);
+                    }
+                }
+            ]
+        },
+        'BTCRDD': {
+            'bittrex': [
+                'Bittrex',
+                'https://bittrex.com/api/v1.1/public/getticker?market=BTC-RDD',
+                function (res, cb) {
+                    if (!res.success) {
+                        return cb(res.error);
+                    } else {
+                        return cb(null, res.result.Last);
+                    }
+                }
+            ]
+        },
+        'BTCXZC': {
+            'bittrex': [
+                'Bittrex',
+                'https://bittrex.com/api/v1.1/public/getticker?market=BTC-XZC',
+                function (res, cb) {
+                    if (!res.success) {
+                        return cb(res.error);
+                    } else {
+                        return cb(null, res.result.Last);
+                    }
+                }
+            ]
+        },
+        'LWFBTC': {
+            // TO DO: We know that is not Bittrex of course, but for now we will leave so to fix quickly the problem
+            'cryptopia': [
+                'Cryptopia',
+                'https://www.cryptopia.co.nz/api/GetMarket/LWF_BTC',
+                function (res, cb) {
+                    if (!res.Success) {
+                        return cb(res.Error);
+                    } else {
+                        return cb(null, res.Data.LastPrice);
+                        //   return cb(null, res.result.LastPrice);
+                    }
+                }
             ]
         }
     };
@@ -89,7 +128,7 @@ module.exports = function (config) {
             if (!exchange) {
                 return;
             }
-            if (exchanges[pair].hasOwnProperty (exchange)) {
+            if (exchanges[pair].hasOwnProperty(exchange)) {
                 console.log('Exchange:', util.format('Configured [%s] as %s/%s exchange', exchange, key1, key2));
                 config.exchangeRates.exchanges[key1][key2] = exchanges[pair][exchange];
                 config.exchangeRates.exchanges[key1][key2].pair = pair;
@@ -102,14 +141,14 @@ module.exports = function (config) {
                 config.exchangeRates.exchanges[key1][key2].pair = pair;
             } else {
                 console.log('Exchange:', util.format('Unrecognized %s/%s pair, deleted', key1, key2));
-                remove (config.exchangeRates.exchanges[key1][key2]);
+                remove(config.exchangeRates.exchanges[key1][key2]);
             }
         });
     });
 
     var requestTicker = function (options, cb) {
         request.get({
-            url : options[1],
+            url: options[1],
             json: true
         }, function (err, response, body) {
             if (err) {
@@ -126,29 +165,29 @@ module.exports = function (config) {
         getPriceTicker: function (cb) {
             var currency = {},
                 isNumeric = function (n) {
-                  return !isNaN (parseFloat (n)) && isFinite (n);
+                    return !isNaN(parseFloat(n)) && isFinite(n);
                 };
 
             async.forEachOf(config.exchangeRates.exchanges, function (exchange, key1, seriesCb, result) {
-                currency[key1] = {};
-                async.forEachOf(exchange, function (exchange2, key2, seriesCb2, result2) {
-                    requestTicker(exchange2, function (err, result) {
-                        if (result && isNumeric (result)) {
-                            currency[key1][key2] = result;
-                        } else {
-                            console.log (util.format('Cannot receive exchange rates for %s/%s pair from [%s], ignored', key1, key2, exchange2[0]));
-                        }
-                        seriesCb2 (null, currency);
-                    });
-                }, 
-                function(err) {
-                    seriesCb (null, currency);
+                    currency[key1] = {};
+                    async.forEachOf(exchange, function (exchange2, key2, seriesCb2, result2) {
+                            requestTicker(exchange2, function (err, result) {
+                                if (result && isNumeric(result)) {
+                                    currency[key1][key2] = result;
+                                } else {
+                                    console.log(util.format('Cannot receive exchange rates for %s/%s pair from [%s], ignored', key1, key2, exchange2[0]));
+                                }
+                                seriesCb2(null, currency);
+                            });
+                        },
+                        function (err) {
+                            seriesCb(null, currency);
+                        });
+                },
+                function (err) {
+                    console.log('Exchange rates:', currency);
+                    cb(null, currency);
                 });
-            }, 
-            function(err) {
-                console.log ('Exchange rates:', currency);
-                cb (null, currency);
-            });
         }
     };
 }
