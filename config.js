@@ -31,6 +31,7 @@ config.exchangeRates.updateInterval = 30000; // Interval in ms for checking exch
 config.exchangeRates.exchanges.LWF.BTC = 'cryptopia';  // LWF/BTC pair, supported: cryptopia
 config.exchangeRates.exchanges.BTC.USD = 'bitfinex'; // BTC/USD pair, supported: bitfinex, bitstamp, btce
 config.exchangeRates.exchanges.BTC.EUR = 'bitstamp'; // BTC/EUR pair, supported: bitstamp, bitmarket
+config.exchangeRates.exchanges.BTC.GBP = 'bitfinex'; // BTC/USD pair, supported: bitfinex
 config.exchangeRates.exchanges.BTC.PLN = 'bitmarket'; // BTC/PLN pair, supported: bitmarket
 config.exchangeRates.exchanges.BTC.ARK = 'bittrex'; // BTC/ARK pair, supported: bittrex
 config.exchangeRates.exchanges.BTC.RDD = 'bittrex'; // BTC/RDD pair, supported: bittrex

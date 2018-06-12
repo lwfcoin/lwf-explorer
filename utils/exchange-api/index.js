@@ -57,6 +57,19 @@ module.exports = function (config) {
                 }
             ]
         },
+        'BTCGDP': {
+            'bitfinex': [
+                'Bitfinex',
+                'https://api.bitfinex.com/v1/pubticker/BTCGBP',
+                function (res, cb) {
+                    if (res.message) {
+                        return cb(res.message);
+                    } else {
+                        return cb(null, res.last_price);
+                    }
+                }
+            ],
+        },
         'BTCPLN': {
             'bitmarket': [
                 'Bitmarket',
