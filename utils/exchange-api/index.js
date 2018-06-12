@@ -57,7 +57,7 @@ module.exports = function (config) {
                 }
             ]
         },
-        'BTCGDP': {
+        'BTCGBP': {
             'bitfinex': [
                 'Bitfinex',
                 'https://api.bitfinex.com/v1/pubticker/BTCGBP',
